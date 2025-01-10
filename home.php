@@ -226,7 +226,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         </div>
     </div>
     <p id="datetime"
-        style="color:white; margin-top: 26px; margin-left:80%; position:absolute; position:fixed; z-index:1;"></p>
+        style="color:white; margin-top: 26px; margin-left:83.5%; position:absolute; position:fixed; z-index:1;"></p>
     <a href="logout.php" class="btn btn-danger"
         style="margin-left:94%; position:absolute; margin-top: 20px; position:fixed; z-index:1;">
         Logout</a>
@@ -244,11 +244,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 const date = now.getDate();
                 const month = now.getMonth() + 1;
                 const year = now.getFullYear();
-                const hours = now.getHours().toString().padStart(2, '0');
-                const minutes = now.getMinutes().toString().padStart(2, '0');
-                const seconds = now.getSeconds().toString().padStart(2, '0');
 
-                const dateTimeString = `${day}, ${date}/${month}/${year} - ${hours}:${minutes}:${seconds}`;
+                const dateTimeString = `Today : ${date} - ${month} - ${year}`;
                 $("#datetime").text(dateTimeString);
             }
             // Perbarui waktu setiap detik

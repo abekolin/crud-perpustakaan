@@ -1,0 +1,82 @@
+/* css dashboard */
+body {
+   
+    min-height: 100vh;
+    display: flex;
+}
+.sidebar {
+    width: 250px;
+    background-color: #343a40;
+    color: #fff;
+    position: fixed;
+    height: 100%;
+    padding: 20px;
+}
+.sidebar .nav-link {
+    color: #adb5bd;
+    margin: 10px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+.sidebar .nav-link:hover {
+    background-color: #495057;
+    color: #fff;
+    border-radius: 5px;
+}
+.sidebar .nav-link i {
+    margin-right: 10px;
+}
+.sidebar .nav-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+    transition: margin-left 0.3s ease-in-out;
+}
+/* css login */
+.login-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: gray;
+    border-color: #17a673;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #17a673;
+    border-color: #138f63;
+}
+
+.login-title {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #4e73df;
+    font-weight: bold;
+}
+
+.input-group-text {
+    background-color: #f8f9fc;
+    border: 1px solid #d1d3e2;
+    border-radius: 5px 0 0 5px;
+}

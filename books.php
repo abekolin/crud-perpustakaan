@@ -192,7 +192,7 @@ img {
             </div>
         </div>
     </div>
-    <p id="datetime" style="color:white; margin-top: 26px; margin-left:80%; position:absolute; position:fixed; z-index:2;"></p>
+    <p id="datetime" style="color:white; margin-top: 26px; margin-left:83.5%; position:absolute; position:fixed; z-index:2; "></p>
     <a href="logout.php" class="btn btn-danger" style="margin-left:94%; position:absolute; margin-top: 20px; position:fixed; z-index:2;"> Logout</a>
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -216,13 +216,8 @@ img {
             const month = now.getMonth() + 1; // Bulan dimulai dari 0
             const year = now.getFullYear();
 
-            // Format waktu (HH:MM:SS)
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-
             // Gabungkan semuanya
-            const dateTimeString = `${day}, ${date}/${month}/${year} - ${hours}:${minutes}:${seconds}`;
+            const dateTimeString = `Today : ${date} - ${month} - ${year}`;
 
             // Menampilkan waktu dan tanggal di elemen dengan id "datetime"
             document.getElementById("datetime").textContent = dateTimeString;

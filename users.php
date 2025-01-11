@@ -83,7 +83,7 @@ $penulis = query("SELECT * FROM users ORDER BY id DESC");
     <div id="sidebar" class="sidebar" style="background-color: rgba(0, 0, 0, 0.5); /* Hitam dengan transparansi 50% */
 ">
         <div class="nav-header">
-            BookSphere
+        <img width="50" height="50" src="https://img.icons8.com/clouds/100/book.png" alt="book"/>BookSphere
         </div>
         <hr>
         <ul class="nav flex-column">

@@ -119,8 +119,6 @@ $penulis = query("SELECT * FROM users ORDER BY id DESC");
 
             <!-- <p id="datetime" style="margin-left:94%;"></p> -->
 
-
-
         </nav>
 
         <div class="container mt-4 pb-4 pt-4" style="background-color:white;">
@@ -128,7 +126,7 @@ $penulis = query("SELECT * FROM users ORDER BY id DESC");
                 <i class="fas fa-plus"></i> Tambah Data</a>
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-header">Tabel Penulis</h6>
+                    <h6 class="card-header">Tabel Users</h6>
                     <div class="container mt-2">
                         <table class="table table-striped table-bordered table-hover text-center table-responsive">
                             <thead class="table-light">

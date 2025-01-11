@@ -114,12 +114,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </a>
             </li>
             <li class="nav-item mt-auto">
-                <a class="nav-link" href="#" style="color:whitesmoke;">
+                <a class="nav-link" href="users.php" style="color:whitesmoke;">
                     <i class="bi bi-people" style="font-style:normal;"> Users</i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" style="color:whitesmoke;">
+                <a class="nav-link" href="books.php" style="color:whitesmoke;">
                     <i class="bi bi-book" style="font-style:normal;"> Books</i>
                 </a>
             </li>

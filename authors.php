@@ -91,7 +91,7 @@ $penulis = query("SELECT * FROM penulis WHERE isdel IS NULL ORDER BY id_penulis 
     <div id="sidebar" class="sidebar" style="background-color: rgba(0, 0, 0, 0.5); z-index: 2; /* Hitam dengan transparansi 50% */
 ">
         <div class="nav-header">
-        <img width="50" height="50" src="https://img.icons8.com/clouds/100/book.png" alt="book"/>BookSphere
+            <img width="50" height="50" src="https://img.icons8.com/clouds/100/book.png" alt="book" />BookSphere
         </div>
         <hr>
         <ul class="nav flex-column">
@@ -124,13 +124,7 @@ $penulis = query("SELECT * FROM penulis WHERE isdel IS NULL ORDER BY id_penulis 
     margin-right: -20px;
     margin-left: -100%;
     z-index: 1; padding-bottom: 70px;">
-
-            <!-- <p id="datetime" style="margin-left:94%;"></p> -->
-
-
-
         </nav>
-
         <div class="container mt-4 pb-4 pt-4" style="background-color:white;">
             <a href="insert_authors.php" class="btn mb-3" style="background-color:#00BFFF; color:white;">
                 <i class="fas fa-plus"></i> Tambah Data</a>
@@ -187,7 +181,7 @@ $penulis = query("SELECT * FROM penulis WHERE isdel IS NULL ORDER BY id_penulis 
         </div>
     </div>
     <p id="datetime"
-        style="color:white; margin-top: 26px; margin-left:80%; position:absolute; position:fixed; z-index:2;"></p>
+        style="color:white; margin-top: 26px; margin-left:83.5%; position:absolute; position:fixed; z-index:2;"></p>
     <a href="logout.php" class="btn btn-danger"
         style="margin-left:94%; position:absolute; margin-top: 20px; position:fixed; z-index:2;"> Logout</a>
     <!-- Bootstrap Bundle with Popper -->
@@ -212,13 +206,8 @@ $penulis = query("SELECT * FROM penulis WHERE isdel IS NULL ORDER BY id_penulis 
             const month = now.getMonth() + 1; // Bulan dimulai dari 0
             const year = now.getFullYear();
 
-            // Format waktu (HH:MM:SS)
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-
             // Gabungkan semuanya
-            const dateTimeString = `${day}, ${date}/${month}/${year} - ${hours}:${minutes}:${seconds}`;
+            const dateTimeString = `Today : ${date} - ${month} - ${year}`;
 
             // Menampilkan waktu dan tanggal di elemen dengan id "datetime"
             document.getElementById("datetime").textContent = dateTimeString;

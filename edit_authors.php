@@ -203,7 +203,7 @@ if (isset($_POST["submit"])) {
             </div>
         </div>
     </div>
-    <p id="datetime" style="color:white; margin-top: 26px; margin-left:80%; position:absolute; z-index:2; position: fixed;"></p>
+    <p id="datetime" style="color:white; margin-top: 26px; margin-left:83.5%; position:absolute; z-index:2; position: fixed;"></p>
     <a href="logout.php" class="btn btn-danger" style="margin-left:94%; position:absolute; margin-top: 20px; z-index:2; position: fixed;">
         Logout</a>
     <!-- Bootstrap Bundle with Popper -->
@@ -228,14 +228,8 @@ if (isset($_POST["submit"])) {
             const month = now.getMonth() + 1; // Bulan dimulai dari 0
             const year = now.getFullYear();
 
-            // Format waktu (HH:MM:SS)
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-
             // Gabungkan semuanya
-            const dateTimeString = `${day}, ${date}/${month}/${year} - ${hours}:${minutes}:${seconds}`;
-
+            const dateTimeString = `Today : ${date} - ${month} - ${year}`;
             // Menampilkan waktu dan tanggal di elemen dengan id "datetime"
             document.getElementById("datetime").textContent = dateTimeString;
         }

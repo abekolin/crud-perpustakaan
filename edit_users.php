@@ -8,22 +8,28 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     exit();
 }
 
-// Proses penambahan data
+// Cek apakah parameter ID ada
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    header('Location: home.php');
+    exit();
+}
+
+$id = intval($_GET['id']);
+$user = query("SELECT * FROM users WHERE id = $id")[0];
+
+// Proses pembaruan data
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = htmlspecialchars($_POST['username']);
     $email = htmlspecialchars($_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Enkripsi password
 
-    // Insert data ke database
-    $insert = mysqli_query($conn, "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')");
+    $update = mysqli_query($conn, "UPDATE users SET username = '$username', email = '$email' WHERE id = $id");
 
-    if ($insert) {
-        echo "<script>alert('Data berhasil ditambahkan!'); window.location.href='users.php';</script>";
+    if ($update) {
+        echo "<script>alert('Data berhasil diperbarui!'); window.location.href='users.php';</script>";
     } else {
-        echo "<script>alert('Data gagal ditambahkan!');window.location.href='users.php';</script>";
+        echo "<script>alert('Data gagal diperbarui!');window.location.href='users.php';</script>";
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ☰ Menu
     </button>
     <!-- Sidebar -->
-    <div id="sidebar" class="sidebar" style="background-color: rgba(0, 0, 0, 0.5); z-index: 2;/* Hitam dengan transparansi 50% */
+    <div id="sidebar" class="sidebar" style="background-color: rgba(0, 0, 0, 0.5); /* Hitam dengan transparansi 50% */
 ">
         <div class="nav-header">
             BookSphere
@@ -108,12 +114,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </a>
             </li>
             <li class="nav-item mt-auto">
-                <a class="nav-link" href="users.php" style="color:whitesmoke;">
+                <a class="nav-link" href="#" style="color:whitesmoke;">
                     <i class="bi bi-people" style="font-style:normal;"> Users</i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="books.php" style="color:whitesmoke;">
+                <a class="nav-link" href="#" style="color:whitesmoke;">
                     <i class="bi bi-book" style="font-style:normal;"> Books</i>
                 </a>
             </li>
@@ -130,14 +136,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             style="margin-top: -20px;
     margin-right: -20px;
     margin-left: -100%;
-    z-index: 1; padding-bottom: 70px;">
+    z-index: -1; padding-bottom: 70px;">
             <!-- <p id="datetime" style="margin-left:94%;"></p> -->
         </nav>
         <div class="container mt-4 pb-4 pt-4" style="background-color:white;">
 <div class="card">
 <div class="card-body">
-<h6 class="card-header">Tambah Data Users</h6>
+<h6 class="card-header">Edit Data Penulis</h6>
 <form action="" method="post" enctype="multipart/form-data">
+<input type="hidden" name="id_penulis" value="<?= $penulis["id_penulis"]?>">
+<input type="hidden" name="gambarLama" value="<?= $penulis["gambar"]?>">
     <div class="container">
         <div class="row justify-content-start">
             <div class="col-md-6">
@@ -148,26 +156,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                  </style>
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control" required>
+                    <label for="nama" class="form-label">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" required value="<?= htmlspecialchars($user['username']); ?>">
                 </div>
 
-                <!-- email -->
+                <!-- Email -->
                 <div class="mb-3">
-                    <label for="email" class="form-label">email</label>
-                    <input type="text" name="email" id="email" class="form-control" required>
-                </div>
-
-                   <!-- password -->
-                   <div class="mb-3">
-                    <label for="password" class="form-label">password</label>
-                    <input type="text" name="password" id="password" class="form-control" required>
+                    <label for="asal" class="form-label">Email</label>
+                    <input type="text" name="email" id="email" class="form-control" required value="<?=$user['email']?>">
                 </div>
 
                 <!-- Submit Button -->
                 <div class="d-flex justify-content-start">
-                    <a href="insert_users.php" class="btn btn-danger">Reset</a>&nbsp;
-                    <button type="submit" name="submit" class="btn btn-primary">Tambah Data</button>
+                    <a href="users.php" class="btn btn-danger">Batal</a>&nbsp;
+                    <button type="submit" name="submit" class="btn btn-primary">Simpan Perubahan</button>
                 </div>
             </div>
         </div>
@@ -178,8 +180,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         </div>
     </div>
-    <p id="datetime" style="color:white; margin-top: 26px; margin-left:83.5%; position:absolute; position:fixed; z-index:2;"></p>
-    <a href="logout.php" class="btn btn-danger" style="margin-left:94%; position:absolute; margin-top: 20px; position:fixed; z-index:2;"> Logout</a>
+    <p id="datetime" style="color:white; margin-top: 26px; margin-left:83.5%; position:absolute;"></p>
+    <a href="logout.php" class="btn btn-danger" style="margin-left:94%; position:absolute; margin-top: 20px;"> Logout</a>
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
@@ -217,3 +219,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </body>
 
 </html>
+
